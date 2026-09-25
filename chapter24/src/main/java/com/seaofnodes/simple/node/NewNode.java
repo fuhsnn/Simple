@@ -35,7 +35,11 @@ public class NewNode extends Node implements MultiNode {
 
     public Node mem (int idx) { return in(idx+2); }
 
-    @Override public String label() { return "new_"+(_ptr._obj.isAry() ? "ary_"+_ptr._obj._fields[1]._t.str() : _ptr._obj.str()); }
+    @Override public String label() { return "new_"+dotlabel(); }
+    @Override public String dotlabel() {
+        return _ptr._obj.isAry() ? "ary_"+_ptr._obj._fields[1]._t.str() : _ptr._obj.str();
+    }
+
     @Override
     public StringBuilder _print1(StringBuilder sb, BitSet visited) {
         sb.append("new ");

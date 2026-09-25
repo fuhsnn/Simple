@@ -8,6 +8,8 @@ public class NotNode extends Node {
     public NotNode(Node in) { super(null, in); }
     @Override public Tag serialTag() { return Tag.Not; }
 
+    @Override public String dotlabel() { return "!"; }
+
     @Override
     public StringBuilder _print1(StringBuilder sb, BitSet visited) {
         in(1)._print0(sb.append("(!"), visited);

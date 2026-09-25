@@ -23,8 +23,11 @@ public class LoadNode extends MemOpNode {
         super(loc, name, alias, glb, mem, ptr, off);
     }
 
-    // Debugger label
+    // GraphVis DOT code (must be valid Java identifiers) and debugger labels
     @Override public String  label() { return "ld_"+mlabel(); }
+    // GraphVis node-internal labels
+    @Override public String dotlabel() { return "." +_name; }
+
     @Override
     StringBuilder _print1(StringBuilder sb, BitSet visited) { return sb.append(".").append(_name); }
 

@@ -26,6 +26,8 @@ public class PhiNode extends Node {
 
     @Override public String label() { return "Phi_"+MemOpNode.mlabel(_label); }
 
+    @Override public String dotlabel() { return "&phi;_"+_label; }
+
     @Override
     public StringBuilder _print1(StringBuilder sb, BitSet visited) {
         if( !(region() instanceof RegionNode r) || r.inProgress() )

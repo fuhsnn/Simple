@@ -10,6 +10,9 @@ public class OrNode extends ArithNode {
 
     @Override public String label() { return "Or"; }
     @Override public String op() { return "|"; }
+    @Override public String dotlabel() { return "|"; }
+
+
     @Override long doOp( long x, long y ) { return x | y; }
     @Override TypeInteger doOp(TypeInteger x, TypeInteger y) {
         return TypeInteger.BOT;

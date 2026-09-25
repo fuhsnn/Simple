@@ -156,6 +156,10 @@ public abstract class Node implements Cloneable {
         return label() + _nid;
     }
 
+    public String dotuniqueName() { return uniqueName().replaceAll("\\$", ""); }
+
+    public String dotlabel() { return label(); }
+
     // Operator symbol used by assembly/debug printing.
     public String glabel() { return label(); }
 

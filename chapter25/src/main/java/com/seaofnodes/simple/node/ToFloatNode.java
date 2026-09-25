@@ -10,6 +10,8 @@ public class ToFloatNode extends Node {
     public ToFloatNode(Node lhs) { super(null, lhs); }
     @Override public Tag serialTag() { return Tag.ToFloat; }
 
+    @Override public String dotlabel() { return "(flt)"; }
+
     @Override
     public StringBuilder _print1(StringBuilder sb, BitSet visited) {
         return in(1)._print0(sb.append("(flt)"), visited);

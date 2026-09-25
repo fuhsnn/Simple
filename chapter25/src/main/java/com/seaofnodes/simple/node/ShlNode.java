@@ -10,6 +10,8 @@ public class ShlNode extends ArithNode {
     @Override public Tag serialTag() { return Tag.Shl; }
 
     @Override public String op() { return "<<"; }
+    @Override public String dotlabel() { return "&lt;&lt;"; }
+
     @Override long doOp( long x, long y ) { return x << y; }
     @Override TypeInteger doOp( TypeInteger x, TypeInteger y ) {
         if( x == TypeInteger.ZERO )

@@ -32,7 +32,10 @@ public class NewNode extends Node implements MultiNode {
         return new NewNode(ts,null,null);
     }
 
-    @Override public String label() { return "new_"+(_ts.isAry() ? "ary_"+_ts._fields[1]._t.str() : _ts.str()); }
+    @Override public String dotlabel() {
+        return _ts.isAry() ? "ary_"+_ts._fields[1]._t.str() : _ts.str();
+    }
+    @Override public String label() { return "new_"+dotlabel(); }
 
     @Override public StringBuilder _print1(StringBuilder sb, BitSet visited) {
         sb.append("new ");

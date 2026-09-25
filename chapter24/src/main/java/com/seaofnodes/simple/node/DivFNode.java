@@ -12,6 +12,8 @@ public class DivFNode extends ArithFNode {
 
     @Override public String glabel() { return "/"; }
 
+    @Override public String dotlabel() { return "/"; }
+
     @Override double doOp( double x, double y ) { return x/y; }
 
     @Override

@@ -67,6 +67,7 @@ public class ConstantNode extends TypeNode {
     public static ConstantNode seed( Type type ) { return new ConstantNode(type,true); }
 
     @Override public String  label() { return "#"+_con; }
+    @Override public String dotlabel() { return "#"+_con.gprint(); }
     @Override public String uniqueName() { return "Con_" + _nid; }
     @Override public Node copy() { return raw(this); }
 

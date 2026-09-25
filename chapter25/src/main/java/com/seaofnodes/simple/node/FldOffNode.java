@@ -23,6 +23,7 @@ public class FldOffNode extends TypeNode {
     @Override public String label() {
         return _fname == " len" ? "sizeof()" : "#"+_fname;
     }
+    @Override public String dotlabel() { return label(); }
     @Override public String uniqueName() { return "Off_" + _nid; }
 
     @Override

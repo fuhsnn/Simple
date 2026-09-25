@@ -29,6 +29,7 @@ public class ExternNode extends ConstantNode {
     }
 
     @Override public String  label() { return "#"+_con+":"+_extern; }
+    @Override public String dotlabel() { return _con.print(new SB().p("#"), new BitSet(), true).p(":").p(_extern).toString(); }
     @Override public String uniqueName() { return "Extern_" + _nid; }
 
     @Override public boolean eq(Node n) { return this==n; }

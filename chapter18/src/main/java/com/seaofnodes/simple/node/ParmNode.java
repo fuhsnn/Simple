@@ -16,6 +16,8 @@ public class ParmNode extends PhiNode {
 
     @Override public String label() { return MemOpNode.mlabel(_label); }
 
+    @Override public String dotlabel() { return _label; }
+
     public FunNode fun() { return (FunNode)in(0); }
 
     @Override

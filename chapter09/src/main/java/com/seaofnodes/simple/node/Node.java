@@ -85,6 +85,10 @@ public abstract class Node {
     // Unique label for debugging, e.g. "Add12" or "Region30" or "EQ99"
     public String uniqueName() { return label() + _nid; }
 
+    public String dotuniqueName() { return uniqueName().replaceAll("\\$", ""); }
+
+    public String dotlabel() { return label(); }
+
     // ------------------------------------------------------------------------
 
     // Debugger Printing.

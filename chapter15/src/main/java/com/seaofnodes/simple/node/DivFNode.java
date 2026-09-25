@@ -10,6 +10,8 @@ public class DivFNode extends Node {
 
     @Override public String label() { return "DivF"; }
 
+    @Override public String dotlabel() { return "/"; }
+
     @Override
     StringBuilder _print1(StringBuilder sb, BitSet visited) {
         in(1)._print0(sb.append("("), visited);

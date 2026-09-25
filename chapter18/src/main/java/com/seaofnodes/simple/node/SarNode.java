@@ -11,6 +11,8 @@ public class SarNode extends LogicalNode {
     @Override public String label() { return "Sar"; }
     @Override public String op() { return ">>"; }
 
+    @Override public String dotlabel() { return "&gt;&gt;"; }
+
     @Override
     public Type compute() {
         Type t1 = in(1)._type, t2 = in(2)._type;

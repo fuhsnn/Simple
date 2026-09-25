@@ -82,6 +82,10 @@ public abstract class Node implements Cloneable {
         return label() + _nid;
     }
 
+    public String dotuniqueName() { return uniqueName().replaceAll("\\$", ""); }
+
+    public String dotlabel() { return label(); }
+
     // Extra fun stuff, for assembly printing.  Jump labels, parser locations,
     // variable types, etc.
     public String comment() { return null; }

@@ -49,8 +49,10 @@ public class StoreNode extends MemOpNode {
         baos.write(_size);
     }
 
-    // Debugger label
+    // GraphVis DOT code and debugger labels
     @Override public String  label() { return "st_"+mlabel(); }
+    // GraphVis node-internal labels
+    @Override public String dotlabel() { return "." +_name+"="; }
     @Override public boolean isMem() { return true; }
 
     public Node nnptr() {

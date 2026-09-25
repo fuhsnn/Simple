@@ -76,6 +76,10 @@ public abstract class Node implements Cloneable {
         return label() + _nid;
     }
 
+    public String dotuniqueName() { return uniqueName().replaceAll("\\$", ""); }
+
+    public String dotlabel() { return label(); }
+
     // ------------------------------------------------------------------------
 
     // Debugger Printing.
