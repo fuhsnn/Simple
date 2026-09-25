@@ -19,6 +19,7 @@ public class PtrToIntNode extends Node {
     public PtrToIntNode(PtrToIntNode ptr) { super(ptr); }
 
     @Override public Tag serialTag() { return Tag.PtrToInt; }
+    @Override public String dotlabel() { return "(i64*)"; }
     @Override public StringBuilder _print1(StringBuilder sb, BitSet visited) {
         return in(1)._print0(sb.append("(i64*)"),visited);
     }

@@ -24,6 +24,8 @@ public class StoreNode extends MemOpNode {
     @Override
     public String label() { return "Store"; }
     @Override
+    public String dotlabel() { return "."+_name+" ="; }
+    @Override
     public boolean isMem() { return true; }
     public Node val() { return in(3); }
 

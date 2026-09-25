@@ -78,6 +78,10 @@ public abstract class Node {
         return label() + _nid;
     }
 
+    public String dotuniqueName() { return uniqueName().replaceAll("\\$", ""); }
+
+    public String dotlabel() { return label(); }
+
     // ------------------------------------------------------------------------
 
     // Debugger Printing.

@@ -11,6 +11,8 @@ public class ToFloatNode extends Node {
 
     @Override public String label() { return "ToFloat"; }
 
+    @Override public String dotlabel() { return "(flt)"; }
+
     @Override
     StringBuilder _print1(StringBuilder sb, BitSet visited) {
         return in(1)._print0(sb.append("(flt)"), visited);

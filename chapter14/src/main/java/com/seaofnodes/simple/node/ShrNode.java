@@ -10,6 +10,8 @@ public class ShrNode extends Node {
 
     @Override public String label() { return "Shr"; }
 
+    @Override public String dotlabel() { return "&gt;&gt;&gt;"; }
+
     @Override
     StringBuilder _print1(StringBuilder sb, BitSet visited) {
         in(1)._print0(sb.append("("), visited);

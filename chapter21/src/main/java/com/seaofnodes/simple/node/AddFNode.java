@@ -10,6 +10,8 @@ public class AddFNode extends Node {
 
     @Override public String label() { return "AddF"; }
 
+    @Override public String dotlabel() { return "+"; }
+
     @Override
     public StringBuilder _print1(StringBuilder sb, BitSet visited) {
         in(1)._print0(sb.append("("), visited);

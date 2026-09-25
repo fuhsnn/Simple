@@ -18,6 +18,9 @@ public class NewNode extends Node {
     public String label() { return "new"; }
 
     @Override
+    public String dotlabel() { return "new " + _ptr._obj._name; }
+
+    @Override
     StringBuilder _print1(StringBuilder sb, BitSet visited) {
         sb.append("new ");
         return sb.append(_ptr._obj.str());

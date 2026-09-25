@@ -79,6 +79,10 @@ public abstract class Node implements OutNode {
         return label() + _nid;
     }
 
+    public String dotuniqueName() { return uniqueName().replaceAll("\\$", ""); }
+
+    public String dotlabel() { return label(); }
+
     // ------------------------------------------------------------------------
 
     // Debugger Printing.

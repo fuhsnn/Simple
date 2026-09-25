@@ -9,6 +9,8 @@ public class ShrNode extends ArithNode {
 
     @Override public String label() { return "Shr"; }
     @Override public String op() { return ">>>"; }
+    @Override public String dotlabel() { return "&gt;&gt;&gt;"; }
+
     @Override long doOp( long x, long y ) { return x >>> y; }
     @Override TypeInteger doOp( TypeInteger x, TypeInteger y ) {
         return x == TypeInteger.ZERO ? x : TypeInteger.BOT;

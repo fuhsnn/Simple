@@ -19,6 +19,9 @@ abstract public class BoolNode extends Node {
     public String label() { return getClass().getSimpleName(); }
 
     @Override
+    public String dotlabel() { return op(); }
+
+    @Override
     StringBuilder _print1(StringBuilder sb, BitSet visited) {
         in(1)._print0(sb.append("("), visited);
         in(2)._print0(sb.append(op()), visited);
@@ -90,6 +93,7 @@ abstract public class BoolNode extends Node {
     public static class LT extends BoolNode {
         public LT(Node lhs, Node rhs) { super(lhs,rhs); }
         String op() { return "<" ; }
+        public String dotlabel() { return "&lt;"; }
         TypeInteger doOp(TypeInteger i1, TypeInteger i2) {
             if( i1._max <  i2._min ) return TRUE;
             if( i1._min >= i2._max ) return FALSE;
@@ -101,6 +105,7 @@ abstract public class BoolNode extends Node {
     public static class LE extends BoolNode {
         public LE(Node lhs, Node rhs) { super(lhs,rhs); }
         String op() { return "<="; }
+        public String dotlabel() { return "&lt;="; }
         TypeInteger doOp(TypeInteger i1, TypeInteger i2) {
             if( i1._max <= i2._min ) return TRUE;
             if( i1._min >  i2._max ) return FALSE;

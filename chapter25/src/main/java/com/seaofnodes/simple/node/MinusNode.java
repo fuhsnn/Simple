@@ -20,6 +20,7 @@ public class MinusNode extends Node implements ModeNode {
     }
     @Override public Tag serialTag() { return Tag.Minus; }
 
+    @Override public String dotlabel() { return "-"; }
     @Override public byte mode() { return _mode; }
     @Override public Node setMode(byte mode) {
         assert _mode==0 && (mode==1 || mode==2);

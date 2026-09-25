@@ -9,6 +9,8 @@ public class AndNode extends ArithNode {
 
     @Override public String label() { return "And"; }
     @Override public String op() { return "&"; }
+    @Override public String dotlabel() { return "&"; }
+
     @Override long doOp( long x, long y ) { return x & y; }
     @Override TypeInteger doOp(TypeInteger x, TypeInteger y) {
         // Sharpen allowed bits if either value is narrowed

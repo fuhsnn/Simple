@@ -11,6 +11,8 @@ public class XorNode extends LogicalNode {
     @Override public String label() { return "Xor"; }
     @Override public String op() { return "^"; }
 
+    @Override public String dotlabel() { return "^"; }
+
     @Override
     public Type compute() {
         Type t1 = in(1)._type, t2 = in(2)._type;
