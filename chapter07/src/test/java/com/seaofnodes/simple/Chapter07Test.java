@@ -17,9 +17,11 @@ public class Chapter07Test {
                 }
                 return arg;
                 """);
+        Node._disablePeephole = true;
         StopNode stop = parser.parse();
         assertEquals("return Phi(Loop6,arg,(Phi_arg+1));", stop.toString());
         assertTrue(stop.ret().ctrl() instanceof ProjNode);
+        Node._disablePeephole = false;
     }
 
     @Test
@@ -70,9 +72,11 @@ while(a < 10) {
 }
 return b;
 """);
+        Node._disablePeephole = true;
         StopNode stop = parser.parse();
         assertEquals("return Phi(Loop8,2,Phi(Region27,Phi_b,4));", stop.toString());
         assertTrue(stop.ret().ctrl() instanceof ProjNode);
+        Node._disablePeephole = false;
     }
 
     @Test
@@ -106,9 +110,11 @@ while(a < 10) {
 }
 return a;
 """);
+        Node._disablePeephole = true;
         StopNode stop = parser.parse();
-        assertEquals("return Phi(Loop7,1,(Phi_a+3));", stop.toString());
+        assertEquals("return Phi(Loop7,1,((Phi_a+1)+2));", stop.toString());
         assertTrue(stop.ret().ctrl() instanceof ProjNode);
+        Node._disablePeephole = false;
     }
 
     @Test
@@ -135,9 +141,11 @@ int a = 1;
 while(arg) a = 2;
 return a;
 """);
+        Node._disablePeephole = true;
         StopNode stop = parser.parse();
         assertEquals("return Phi(Loop7,1,2);", stop.toString());
         assertTrue(stop.ret().ctrl() instanceof ProjNode);
+        Node._disablePeephole = false;
     }
 
     @Test
@@ -164,9 +172,11 @@ while(a < 10) {
 }
 return a;
 """);
+        Node._disablePeephole = true;
         StopNode stop = parser.parse();
-        assertEquals("return Phi(Loop7,1,(Phi_a+3));", stop.toString());
+        assertEquals("return Phi(Loop7,1,((Phi_a+1)+2));", stop.toString());
         assertTrue(stop.ret().ctrl() instanceof ProjNode);
+        Node._disablePeephole = false;
     }
 
     @Test
@@ -197,9 +207,11 @@ while(a < 10) {
 }
 return a;
 """);
+        Node._disablePeephole = true;
         StopNode stop = parser.parse();
-        assertEquals("return Phi(Loop8,1,(Phi_a+3));", stop.toString());
+        assertEquals("return Phi(Loop8,1,((Phi_a+1)+2));", stop.toString());
         assertTrue(stop.ret().ctrl() instanceof ProjNode);
+        Node._disablePeephole = false;
     }
 
     @Test
