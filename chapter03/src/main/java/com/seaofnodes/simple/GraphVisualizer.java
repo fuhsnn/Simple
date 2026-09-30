@@ -81,7 +81,7 @@ public class GraphVisualizer {
             sb.append("\t\t\t<TABLE BORDER=\"0\" CELLBORDER=\"1\" CELLSPACING=\"0\">\n");
             // Add the scope level
             sb.append("\t\t\t<TR><TD BGCOLOR=\"cyan\">").append(level).append("</TD>");
-            for( String name : scope.keySet() )
+            for( String name : new TreeMap<>(scope).keySet() )
                 sb.append("<TD PORT=\"").append(makePortName(scopeName, name)).append("\">").append(name).append("</TD>");
             sb.append("</TR>\n");
             sb.append("\t\t\t</TABLE>>];\n");
@@ -131,7 +131,7 @@ public class GraphVisualizer {
         int level=0;
         for( HashMap<String,Integer> scope : scopenode._scopes ) {
             String scopeName = makeScopeName(scopenode, level);
-            for( String name : scope.keySet() ) {
+            for( String name : new TreeMap<>(scope).keySet() ) {
                 Node def = scopenode.in(scope.get(name));
                 if( def==null ) continue;
                 sb.append("\t")
@@ -150,12 +150,12 @@ public class GraphVisualizer {
      */
     private Collection<Node> findAll(Parser parser) {
         final StartNode start = Parser.START;
-        final HashMap<Integer, Node> all = new HashMap<>();
+        final TreeMap<Integer, Node> all = new TreeMap<>();
         for( Node n : start._outputs )
             walk(all, n);
         // Scan symbol tables
         for( HashMap<String,Integer> scope : parser._scope._scopes )
-            for (Integer i : scope.values())
+            for (Integer i : new TreeMap<>(scope).values())
                 walk(all, parser._scope.in(i));
         return all.values();
     }
@@ -163,7 +163,7 @@ public class GraphVisualizer {
     /**
      * Walk a subgraph and populate distinct nodes in the all list.
      */
-    private void walk(HashMap<Integer, Node> all, Node n) {
+    private void walk(TreeMap<Integer, Node> all, Node n) {
         if(n == null ) return;
         if (all.get(n._nid) != null) return; // Been there, done that
         all.put(n._nid, n);

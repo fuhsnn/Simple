@@ -148,7 +148,7 @@ public class GraphVisualizer {
             // Add the scope level
             int scopeLevel = scope._scopes.size()-level;
             sb.append("\t\t\t<TR><TD BGCOLOR=\"cyan\">").append(scopeLevel).append("</TD>");
-            for(String name: syms.keySet())
+            for( String name : new TreeMap<>(syms).keySet() )
                 sb.append("<TD PORT=\"").append(makePortName(scopeName, name)).append("\">").append(name).append("</TD>");
             sb.append("</TR>\n");
             sb.append("\t\t\t</TABLE>>];\n");
@@ -209,7 +209,7 @@ public class GraphVisualizer {
         for( int i = scope._scopes.size()-1; i>=0; i-- ) {
             var syms = scope._scopes.get(i);
             String scopeName = makeScopeName(scope, level);
-            for( String name : syms.keySet() ) {
+            for( String name : new TreeMap<>(syms).keySet() ) {
                 int idx = syms.get(name);
                 Node def = scope.in(idx);
                 if( def==null ) continue;
@@ -231,7 +231,7 @@ public class GraphVisualizer {
      * Finds all nodes in the graph.
      */
     private Collection<Node> findAll(Parser parser) {
-        final HashMap<Integer, Node> all = new HashMap<>();
+        final TreeMap<Integer, Node> all = new TreeMap<>();
         for( Node n : Parser.START._outputs )
             walk(all, n);
         for( Node n : parser._scope._inputs )
@@ -242,7 +242,7 @@ public class GraphVisualizer {
     /**
      * Walk a subgraph and populate distinct nodes in the all list.
      */
-    private void walk(HashMap<Integer,Node> all, Node n) {
+    private void walk(TreeMap<Integer, Node> all, Node n) {
         if(n == null ) return;
         if (all.get(n._nid) != null) return; // Been there, done that
         all.put(n._nid, n);

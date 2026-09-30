@@ -95,7 +95,7 @@ public class GraphVisualizer {
      */
     private Collection<Node> findAll(Parser parser) {
         final StartNode start = Parser.START;
-        final HashMap<Integer, Node> all = new HashMap<>();
+        final TreeMap<Integer, Node> all = new TreeMap<>();
         for( Node n : start._outputs )
             walk(all, n);
         return all.values();
@@ -104,7 +104,7 @@ public class GraphVisualizer {
     /**
      * Walk a subgraph and populate distinct nodes in the all list.
      */
-    private void walk(HashMap<Integer, Node> all, Node n) {
+    private void walk(TreeMap<Integer, Node> all, Node n) {
         if (all.get(n._nid) != null) return; // Been there, done that
         all.put(n._nid, n);
         for (Node c : n._inputs)
